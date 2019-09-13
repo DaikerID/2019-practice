@@ -8,33 +8,33 @@ class VirtualMem
 {
 	vector<Page> vir_mem;
 public:
-	//iNum - итератор страницы внуттри виртуальной памяти
-	void add_new_page(int RW, int num);//добавление новой страницы в вм
-	bool is_page_exists_in_vm(int num_of_page);//проверка на наличие страрницы в ВП
-	bool is_page_exists_in_phm(int num_of_page);//-\\-\\- тоже самое ток в ФП
-	void set_command(int num_of_page, int RW);//установка новой команды
-	void set_framenum_by_num(int num_of_page, int n);//установка нового номера фреймав ФП по номеру страницы
-	void set_framenum_by_iNum(int iNum, int n);//-\\-\\-\\ по итератору
-	int get_frame_num(int num_of_page);//номер фрейма по номеру страницы
-	int get_iNum(int num_of_page);//получить итератор страницы
-	int get_num(int iNum);//получить номер по итератору
-	void discharge_read_bit();//обнуление битов чтения у всех страниц
-	void set_read_bit(int iNum, int bit);//установить бит R по итератору
-	int get_read_bit(int iNum);//получить бит R по итератору
-	void set_write_bit(int iNum, int bit);//установить бит M по итератору
-	int get_write_bit(int iNum);//получить бит M по итератору
-	void set_age(int iNum, int new_age);//установить новое значение возраста по итератору
-	void age_plus(int iNum);// прибавить возраст, по итератору
-	void age_plus();//прибавить возраст у всех страниц
-	int get_age(int iNum);//получить возраст
-	void set_pageout(int iNum, int out);//установить бит S
-	int get_pageout(int iNum);//получить бит S
-	void set_in_vec();//записать новое значения бита R в дек страницы, для каждой страницы
-	int get_count_read(int iNum);//получить количество обращений к странице
-	void set_outed(int iNum, int out);//установить бит out
-	int get_outed(int iNum);//получить бит out
-	int get_swapout(int iNum);//получить бит swap_out 
-	int size();//текущий размр ВП
+	//iNum - РёС‚РµСЂР°С‚РѕСЂ СЃС‚СЂР°РЅРёС†С‹ РІРЅСѓС‚С‚СЂРё РІРёСЂС‚СѓР°Р»СЊРЅРѕР№ РїР°РјСЏС‚Рё
+	void add_new_page(int RW, int num);//РґРѕР±Р°РІР»РµРЅРёРµ РЅРѕРІРѕР№ СЃС‚СЂР°РЅРёС†С‹ РІ РІРј
+	bool is_page_exists_in_vm(int num_of_page);//РїСЂРѕРІРµСЂРєР° РЅР° РЅР°Р»РёС‡РёРµ СЃС‚СЂР°СЂРЅРёС†С‹ РІ Р’Рџ
+	bool is_page_exists_in_phm(int num_of_page);//-\\-\\- С‚РѕР¶Рµ СЃР°РјРѕРµ С‚РѕРє РІ Р¤Рџ
+	void set_command(int num_of_page, int RW);//СѓСЃС‚Р°РЅРѕРІРєР° РЅРѕРІРѕР№ РєРѕРјР°РЅРґС‹
+	void set_framenum_by_num(int num_of_page, int n);//СѓСЃС‚Р°РЅРѕРІРєР° РЅРѕРІРѕРіРѕ РЅРѕРјРµСЂР° С„СЂРµР№РјР°РІ Р¤Рџ РїРѕ РЅРѕРјРµСЂСѓ СЃС‚СЂР°РЅРёС†С‹
+	void set_framenum_by_iNum(int iNum, int n);//-\\-\\-\\ РїРѕ РёС‚РµСЂР°С‚РѕСЂСѓ
+	int get_frame_num(int num_of_page);//РЅРѕРјРµСЂ С„СЂРµР№РјР° РїРѕ РЅРѕРјРµСЂСѓ СЃС‚СЂР°РЅРёС†С‹
+	int get_iNum(int num_of_page);//РїРѕР»СѓС‡РёС‚СЊ РёС‚РµСЂР°С‚РѕСЂ СЃС‚СЂР°РЅРёС†С‹
+	int get_num(int iNum);//РїРѕР»СѓС‡РёС‚СЊ РЅРѕРјРµСЂ РїРѕ РёС‚РµСЂР°С‚РѕСЂСѓ
+	void discharge_read_bit();//РѕР±РЅСѓР»РµРЅРёРµ Р±РёС‚РѕРІ С‡С‚РµРЅРёСЏ Сѓ РІСЃРµС… СЃС‚СЂР°РЅРёС†
+	void set_read_bit(int iNum, int bit);//СѓСЃС‚Р°РЅРѕРІРёС‚СЊ Р±РёС‚ R РїРѕ РёС‚РµСЂР°С‚РѕСЂСѓ
+	int get_read_bit(int iNum);//РїРѕР»СѓС‡РёС‚СЊ Р±РёС‚ R РїРѕ РёС‚РµСЂР°С‚РѕСЂСѓ
+	void set_write_bit(int iNum, int bit);//СѓСЃС‚Р°РЅРѕРІРёС‚СЊ Р±РёС‚ M РїРѕ РёС‚РµСЂР°С‚РѕСЂСѓ
+	int get_write_bit(int iNum);//РїРѕР»СѓС‡РёС‚СЊ Р±РёС‚ M РїРѕ РёС‚РµСЂР°С‚РѕСЂСѓ
+	void set_age(int iNum, int new_age);//СѓСЃС‚Р°РЅРѕРІРёС‚СЊ РЅРѕРІРѕРµ Р·РЅР°С‡РµРЅРёРµ РІРѕР·СЂР°СЃС‚Р° РїРѕ РёС‚РµСЂР°С‚РѕСЂСѓ
+	void age_plus(int iNum);// РїСЂРёР±Р°РІРёС‚СЊ РІРѕР·СЂР°СЃС‚, РїРѕ РёС‚РµСЂР°С‚РѕСЂСѓ
+	void age_plus();//РїСЂРёР±Р°РІРёС‚СЊ РІРѕР·СЂР°СЃС‚ Сѓ РІСЃРµС… СЃС‚СЂР°РЅРёС†
+	int get_age(int iNum);//РїРѕР»СѓС‡РёС‚СЊ РІРѕР·СЂР°СЃС‚
+	void set_pageout(int iNum, int out);//СѓСЃС‚Р°РЅРѕРІРёС‚СЊ Р±РёС‚ S
+	int get_pageout(int iNum);//РїРѕР»СѓС‡РёС‚СЊ Р±РёС‚ S
+	void set_in_vec();//Р·Р°РїРёСЃР°С‚СЊ РЅРѕРІРѕРµ Р·РЅР°С‡РµРЅРёСЏ Р±РёС‚Р° R РІ РґРµРє СЃС‚СЂР°РЅРёС†С‹, РґР»СЏ РєР°Р¶РґРѕР№ СЃС‚СЂР°РЅРёС†С‹
+	int get_count_read(int iNum);//РїРѕР»СѓС‡РёС‚СЊ РєРѕР»РёС‡РµСЃС‚РІРѕ РѕР±СЂР°С‰РµРЅРёР№ Рє СЃС‚СЂР°РЅРёС†Рµ
+	void set_outed(int iNum, int out);//СѓСЃС‚Р°РЅРѕРІРёС‚СЊ Р±РёС‚ out
+	int get_outed(int iNum);//РїРѕР»СѓС‡РёС‚СЊ Р±РёС‚ out
+	int get_swapout(int iNum);//РїРѕР»СѓС‡РёС‚СЊ Р±РёС‚ swap_out 
+	int size();//С‚РµРєСѓС‰РёР№ СЂР°Р·РјСЂ Р’Рџ
 	
 };
 
